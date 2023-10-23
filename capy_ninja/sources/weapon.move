@@ -1,0 +1,1 @@
+module capy_ninja::weapon {}
