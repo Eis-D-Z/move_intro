@@ -19,6 +19,17 @@ Function declaration
 Instantiating a struct
 Return -> the way no one is using it
 
+Key concept: Objects can only be accessed, mutated, instantiated or deleted in the module that defined them.
+
 
 ## Part 2.5
 vector<u8> vs String how it shows on explorer
+
+## Part 3
+
+Explain why `return` is not needed.
+Object deletion -- reiterate Key Concept on Object being accessible only in the module that defined it.
+Vector explanation and nested vectors
+References - intro
+
+Consenquence of Key Concept --> need getters and setters every time.

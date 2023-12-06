@@ -37,7 +37,7 @@ module capy_ninja::weapon {
             type
         };
         // nft
-        return nft
+        nft
     }
 
     public fun burn(nft: Weapon) {
