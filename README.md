@@ -33,3 +33,7 @@ Vector explanation and nested vectors
 References - intro
 
 Consenquence of Key Concept --> need getters and setters every time.
+
+## Part 4
+Assertions
+Error Codes

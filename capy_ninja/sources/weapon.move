@@ -1,15 +1,19 @@
 module capy_ninja::weapon {
-
+    // imports
     use sui::object::{Self, UID};
-    // use sui::object; == use sui::object::{Self};
     use sui::tx_context::TxContext;
 
     use std::string::{Self, String};
     use std::vector;
 
+    // errors
+    const EInexistentRarity: u64 = 0;
+    const EInexistentWeapon: u64 = 1;
+    // constants
     const RARITIES: vector<vector<u8>> = vector[b"Common", b"Rare", b"Epic"];
+    const WEAPONS: vector<vector<u8>> = vector[b"Sword", b"Axe", b"Quarterstaff"];
 
-
+    // struct
     struct Weapon has key, store {
         id: UID,
         weapon: String,
@@ -27,6 +31,9 @@ module capy_ninja::weapon {
         type: String,
         ctx: &mut TxContext
     ): Weapon {
+        // check if rarity is valid
+        assert!(rarity >= 0 && rarity <= 3, EInexistentRarity);
+        assert!(vector::contains<vector<u8>>(&WEAPONS, &name), EInexistentWeapon);
         let rarity = vector::borrow<vector<u8>>(&RARITIES, rarity);
         let nft = Weapon {
             id: object::new(ctx),
@@ -36,7 +43,7 @@ module capy_ninja::weapon {
             rarity: string::utf8(*rarity),
             type
         };
-        // nft
+
         nft
     }
 
